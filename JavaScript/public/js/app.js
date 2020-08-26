@@ -29,8 +29,11 @@ function updateSuggestion(e) {
      let str = e.target.value;
      let prediction = search(str, 0, root);
      lst.innerHTML = "";
-     for (let word in prediction) {
-          lst.innerHTML += '<li onclick="handleClick(this)">' + prediction[word] + '</li>';
+     console.log('pred->', prediction.length);
+     let arr = prediction.length < 10 ? prediction : prediction.slice(0, 10);
+     for (let word of arr) {
+          console.log('arr->', arr.length);
+          lst.innerHTML += '<li onclick="handleClick(this)">' + word + '</li>';
      }
 }
 
