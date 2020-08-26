@@ -1,4 +1,7 @@
-# TRIE-Algorithm
+# TRIE-Algorithm   
+Derived from Re*trie*val
+
+
 Trie implemented in various language with their performance test
 
 ### Blogs & Stackoverflow
