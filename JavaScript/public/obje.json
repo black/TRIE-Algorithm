@@ -1,0 +1,771 @@
+{
+     "c": "\u0000",
+     "isTerminal": false,
+     "map": {
+          "a": {
+               "c": "a",
+               "isTerminal": false,
+               "map": {
+                    "p": {
+                         "c": "p",
+                         "isTerminal": false,
+                         "map": {
+                              "p": {
+                                   "c": "p",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "l": {
+                                             "c": "l",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "e": {
+                                                       "c": "e",
+                                                       "isTerminal": true,
+                                                       "map": {},
+                                                       "words": []
+                                                  }
+                                             },
+                                             "words": ["apple"]
+                                        }
+                                   },
+                                   "words": ["apple"]
+                              },
+                              "r": {
+                                   "c": "r",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "i": {
+                                             "c": "i",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "c": {
+                                                       "c": "c",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "o": {
+                                                                 "c": "o",
+                                                                 "isTerminal": false,
+                                                                 "map": {
+                                                                      "t": {
+                                                                           "c": "t",
+                                                                           "isTerminal": true,
+                                                                           "map": {},
+                                                                           "words": []
+                                                                      }
+                                                                 },
+                                                                 "words": ["apricot"]
+                                                            }
+                                                       },
+                                                       "words": ["apricot"]
+                                                  }
+                                             },
+                                             "words": ["apricot"]
+                                        }
+                                   },
+                                   "words": ["apricot"]
+                              }
+                         },
+                         "words": ["apple", "apricot"]
+                    },
+                    "v": {
+                         "c": "v",
+                         "isTerminal": false,
+                         "map": {
+                              "o": {
+                                   "c": "o",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "c": {
+                                             "c": "c",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "a": {
+                                                       "c": "a",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "d": {
+                                                                 "c": "d",
+                                                                 "isTerminal": false,
+                                                                 "map": {
+                                                                      "o": {
+                                                                           "c": "o",
+                                                                           "isTerminal": true,
+                                                                           "map": {},
+                                                                           "words": []
+                                                                      }
+                                                                 },
+                                                                 "words": ["avocado"]
+                                                            }
+                                                       },
+                                                       "words": ["avocado"]
+                                                  }
+                                             },
+                                             "words": ["avocado"]
+                                        }
+                                   },
+                                   "words": ["avocado"]
+                              }
+                         },
+                         "words": ["avocado"]
+                    }
+               },
+               "words": ["apple", "apricot", "avocado"]
+          },
+          "b": {
+               "c": "b",
+               "isTerminal": false,
+               "map": {
+                    "a": {
+                         "c": "a",
+                         "isTerminal": false,
+                         "map": {
+                              "n": {
+                                   "c": "n",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "a": {
+                                             "c": "a",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "n": {
+                                                       "c": "n",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "a": {
+                                                                 "c": "a",
+                                                                 "isTerminal": true,
+                                                                 "map": {},
+                                                                 "words": []
+                                                            }
+                                                       },
+                                                       "words": ["banana"]
+                                                  }
+                                             },
+                                             "words": ["banana"]
+                                        }
+                                   },
+                                   "words": ["banana"]
+                              }
+                         },
+                         "words": ["banana"]
+                    },
+                    "l": {
+                         "c": "l",
+                         "isTerminal": false,
+                         "map": {
+                              "u": {
+                                   "c": "u",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "e": {
+                                             "c": "e",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "b": {
+                                                       "c": "b",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "e": {
+                                                                 "c": "e",
+                                                                 "isTerminal": false,
+                                                                 "map": {
+                                                                      "r": {
+                                                                           "c": "r",
+                                                                           "isTerminal": false,
+                                                                           "map": {
+                                                                                "r": {
+                                                                                     "c": "r",
+                                                                                     "isTerminal": false,
+                                                                                     "map": {
+                                                                                          "y": {
+                                                                                               "c": "y",
+                                                                                               "isTerminal": true,
+                                                                                               "map": {},
+                                                                                               "words": []
+                                                                                          }
+                                                                                     },
+                                                                                     "words": ["blueberry"]
+                                                                                }
+                                                                           },
+                                                                           "words": ["blueberry"]
+                                                                      }
+                                                                 },
+                                                                 "words": ["blueberry"]
+                                                            }
+                                                       },
+                                                       "words": ["blueberry"]
+                                                  }
+                                             },
+                                             "words": ["blueberry"]
+                                        }
+                                   },
+                                   "words": ["blueberry"]
+                              },
+                              "a": {
+                                   "c": "a",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "c": {
+                                             "c": "c",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "k": {
+                                                       "c": "k",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "b": {
+                                                                 "c": "b",
+                                                                 "isTerminal": false,
+                                                                 "map": {
+                                                                      "e": {
+                                                                           "c": "e",
+                                                                           "isTerminal": false,
+                                                                           "map": {
+                                                                                "r": {
+                                                                                     "c": "r",
+                                                                                     "isTerminal": false,
+                                                                                     "map": {
+                                                                                          "r": {
+                                                                                               "c": "r",
+                                                                                               "isTerminal": false,
+                                                                                               "map": {
+                                                                                                    "y": {
+                                                                                                         "c": "y",
+                                                                                                         "isTerminal": true,
+                                                                                                         "map": {},
+                                                                                                         "words": []
+                                                                                                    }
+                                                                                               },
+                                                                                               "words": ["blackberry"]
+                                                                                          }
+                                                                                     },
+                                                                                     "words": ["blackberry"]
+                                                                                }
+                                                                           },
+                                                                           "words": ["blackberry"]
+                                                                      }
+                                                                 },
+                                                                 "words": ["blackberry"]
+                                                            }
+                                                       },
+                                                       "words": ["blackberry"]
+                                                  }
+                                             },
+                                             "words": ["blackberry"]
+                                        }
+                                   },
+                                   "words": ["blackberry"]
+                              }
+                         },
+                         "words": ["blueberry", "blackberry"]
+                    }
+               },
+               "words": ["banana", "blueberry", "blackberry"]
+          },
+          "c": {
+               "c": "c",
+               "isTerminal": false,
+               "map": {
+                    "a": {
+                         "c": "a",
+                         "isTerminal": false,
+                         "map": {
+                              "r": {
+                                   "c": "r",
+                                   "isTerminal": true,
+                                   "map": {
+                                        "t": {
+                                             "c": "t",
+                                             "isTerminal": true,
+                                             "map": {},
+                                             "words": []
+                                        }
+                                   },
+                                   "words": ["cart"]
+                              }
+                         },
+                         "words": ["car", "cart"]
+                    },
+                    "h": {
+                         "c": "h",
+                         "isTerminal": false,
+                         "map": {
+                              "e": {
+                                   "c": "e",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "r": {
+                                             "c": "r",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "r": {
+                                                       "c": "r",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "y": {
+                                                                 "c": "y",
+                                                                 "isTerminal": true,
+                                                                 "map": {},
+                                                                 "words": []
+                                                            }
+                                                       },
+                                                       "words": ["cherry"]
+                                                  }
+                                             },
+                                             "words": ["cherry"]
+                                        }
+                                   },
+                                   "words": ["cherry"]
+                              }
+                         },
+                         "words": ["cherry"]
+                    }
+               },
+               "words": ["car", "cart", "cherry"]
+          },
+          "p": {
+               "c": "p",
+               "isTerminal": false,
+               "map": {
+                    "e": {
+                         "c": "e",
+                         "isTerminal": false,
+                         "map": {
+                              "a": {
+                                   "c": "a",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "r": {
+                                             "c": "r",
+                                             "isTerminal": true,
+                                             "map": {},
+                                             "words": []
+                                        },
+                                        "c": {
+                                             "c": "c",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "h": {
+                                                       "c": "h",
+                                                       "isTerminal": true,
+                                                       "map": {},
+                                                       "words": []
+                                                  }
+                                             },
+                                             "words": ["peach"]
+                                        }
+                                   },
+                                   "words": ["pear", "peach"]
+                              }
+                         },
+                         "words": ["pear", "peach"]
+                    },
+                    "i": {
+                         "c": "i",
+                         "isTerminal": false,
+                         "map": {
+                              "n": {
+                                   "c": "n",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "e": {
+                                             "c": "e",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "a": {
+                                                       "c": "a",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "p": {
+                                                                 "c": "p",
+                                                                 "isTerminal": false,
+                                                                 "map": {
+                                                                      "p": {
+                                                                           "c": "p",
+                                                                           "isTerminal": false,
+                                                                           "map": {
+                                                                                "l": {
+                                                                                     "c": "l",
+                                                                                     "isTerminal": false,
+                                                                                     "map": {
+                                                                                          "e": {
+                                                                                               "c": "e",
+                                                                                               "isTerminal": true,
+                                                                                               "map": {},
+                                                                                               "words": []
+                                                                                          }
+                                                                                     },
+                                                                                     "words": ["pineapple"]
+                                                                                }
+                                                                           },
+                                                                           "words": ["pineapple"]
+                                                                      }
+                                                                 },
+                                                                 "words": ["pineapple"]
+                                                            }
+                                                       },
+                                                       "words": ["pineapple"]
+                                                  }
+                                             },
+                                             "words": ["pineapple"]
+                                        }
+                                   },
+                                   "words": ["pineapple"]
+                              }
+                         },
+                         "words": ["pineapple"]
+                    },
+                    "l": {
+                         "c": "l",
+                         "isTerminal": false,
+                         "map": {
+                              "u": {
+                                   "c": "u",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "m": {
+                                             "c": "m",
+                                             "isTerminal": true,
+                                             "map": {},
+                                             "words": []
+                                        }
+                                   },
+                                   "words": ["plum"]
+                              }
+                         },
+                         "words": ["plum"]
+                    }
+               },
+               "words": ["pear", "pineapple", "plum", "peach"]
+          },
+          "g": {
+               "c": "g",
+               "isTerminal": false,
+               "map": {
+                    "u": {
+                         "c": "u",
+                         "isTerminal": false,
+                         "map": {
+                              "a": {
+                                   "c": "a",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "v": {
+                                             "c": "v",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "a": {
+                                                       "c": "a",
+                                                       "isTerminal": true,
+                                                       "map": {},
+                                                       "words": []
+                                                  }
+                                             },
+                                             "words": ["guava"]
+                                        }
+                                   },
+                                   "words": ["guava"]
+                              }
+                         },
+                         "words": ["guava"]
+                    },
+                    "r": {
+                         "c": "r",
+                         "isTerminal": false,
+                         "map": {
+                              "a": {
+                                   "c": "a",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "p": {
+                                             "c": "p",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "e": {
+                                                       "c": "e",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "s": {
+                                                                 "c": "s",
+                                                                 "isTerminal": true,
+                                                                 "map": {},
+                                                                 "words": []
+                                                            }
+                                                       },
+                                                       "words": ["grapes"]
+                                                  }
+                                             },
+                                             "words": ["grapes"]
+                                        }
+                                   },
+                                   "words": ["grapes"]
+                              }
+                         },
+                         "words": ["grapes"]
+                    }
+               },
+               "words": ["guava", "grapes"]
+          },
+          "o": {
+               "c": "o",
+               "isTerminal": false,
+               "map": {
+                    "r": {
+                         "c": "r",
+                         "isTerminal": false,
+                         "map": {
+                              "a": {
+                                   "c": "a",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "n": {
+                                             "c": "n",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "g": {
+                                                       "c": "g",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "e": {
+                                                                 "c": "e",
+                                                                 "isTerminal": true,
+                                                                 "map": {},
+                                                                 "words": []
+                                                            }
+                                                       },
+                                                       "words": ["orange"]
+                                                  }
+                                             },
+                                             "words": ["orange"]
+                                        }
+                                   },
+                                   "words": ["orange"]
+                              }
+                         },
+                         "words": ["orange"]
+                    }
+               },
+               "words": ["orange"]
+          },
+          "m": {
+               "c": "m",
+               "isTerminal": false,
+               "map": {
+                    "a": {
+                         "c": "a",
+                         "isTerminal": false,
+                         "map": {
+                              "n": {
+                                   "c": "n",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "g": {
+                                             "c": "g",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "o": {
+                                                       "c": "o",
+                                                       "isTerminal": true,
+                                                       "map": {},
+                                                       "words": []
+                                                  }
+                                             },
+                                             "words": ["mango"]
+                                        }
+                                   },
+                                   "words": ["mango"]
+                              }
+                         },
+                         "words": ["mango"]
+                    },
+                    "e": {
+                         "c": "e",
+                         "isTerminal": false,
+                         "map": {
+                              "l": {
+                                   "c": "l",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "o": {
+                                             "c": "o",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "n": {
+                                                       "c": "n",
+                                                       "isTerminal": true,
+                                                       "map": {},
+                                                       "words": []
+                                                  }
+                                             },
+                                             "words": ["melon"]
+                                        }
+                                   },
+                                   "words": ["melon"]
+                              }
+                         },
+                         "words": ["melon"]
+                    }
+               },
+               "words": ["mango", "melon"]
+          },
+          "r": {
+               "c": "r",
+               "isTerminal": false,
+               "map": {
+                    "a": {
+                         "c": "a",
+                         "isTerminal": false,
+                         "map": {
+                              "s": {
+                                   "c": "s",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "p": {
+                                             "c": "p",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "b": {
+                                                       "c": "b",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "e": {
+                                                                 "c": "e",
+                                                                 "isTerminal": false,
+                                                                 "map": {
+                                                                      "r": {
+                                                                           "c": "r",
+                                                                           "isTerminal": false,
+                                                                           "map": {
+                                                                                "r": {
+                                                                                     "c": "r",
+                                                                                     "isTerminal": false,
+                                                                                     "map": {
+                                                                                          "y": {
+                                                                                               "c": "y",
+                                                                                               "isTerminal": true,
+                                                                                               "map": {},
+                                                                                               "words": []
+                                                                                          }
+                                                                                     },
+                                                                                     "words": ["raspberry"]
+                                                                                }
+                                                                           },
+                                                                           "words": ["raspberry"]
+                                                                      }
+                                                                 },
+                                                                 "words": ["raspberry"]
+                                                            }
+                                                       },
+                                                       "words": ["raspberry"]
+                                                  }
+                                             },
+                                             "words": ["raspberry"]
+                                        }
+                                   },
+                                   "words": ["raspberry"]
+                              }
+                         },
+                         "words": ["raspberry"]
+                    }
+               },
+               "words": ["raspberry"]
+          },
+          "k": {
+               "c": "k",
+               "isTerminal": false,
+               "map": {
+                    "i": {
+                         "c": "i",
+                         "isTerminal": false,
+                         "map": {
+                              "w": {
+                                   "c": "w",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "i": {
+                                             "c": "i",
+                                             "isTerminal": true,
+                                             "map": {},
+                                             "words": []
+                                        }
+                                   },
+                                   "words": ["kiwi"]
+                              }
+                         },
+                         "words": ["kiwi"]
+                    }
+               },
+               "words": ["kiwi"]
+          },
+          "s": {
+               "c": "s",
+               "isTerminal": false,
+               "map": {
+                    "t": {
+                         "c": "t",
+                         "isTerminal": false,
+                         "map": {
+                              "r": {
+                                   "c": "r",
+                                   "isTerminal": false,
+                                   "map": {
+                                        "a": {
+                                             "c": "a",
+                                             "isTerminal": false,
+                                             "map": {
+                                                  "w": {
+                                                       "c": "w",
+                                                       "isTerminal": false,
+                                                       "map": {
+                                                            "b": {
+                                                                 "c": "b",
+                                                                 "isTerminal": false,
+                                                                 "map": {
+                                                                      "e": {
+                                                                           "c": "e",
+                                                                           "isTerminal": false,
+                                                                           "map": {
+                                                                                "r": {
+                                                                                     "c": "r",
+                                                                                     "isTerminal": false,
+                                                                                     "map": {
+                                                                                          "r": {
+                                                                                               "c": "r",
+                                                                                               "isTerminal": false,
+                                                                                               "map": {
+                                                                                                    "y": {
+                                                                                                         "c": "y",
+                                                                                                         "isTerminal": true,
+                                                                                                         "map": {},
+                                                                                                         "words": []
+                                                                                                    }
+                                                                                               },
+                                                                                               "words": ["strawberry"]
+                                                                                          }
+                                                                                     },
+                                                                                     "words": ["strawberry"]
+                                                                                }
+                                                                           },
+                                                                           "words": ["strawberry"]
+                                                                      }
+                                                                 },
+                                                                 "words": ["strawberry"]
+                                                            }
+                                                       },
+                                                       "words": ["strawberry"]
+                                                  }
+                                             },
+                                             "words": ["strawberry"]
+                                        }
+                                   },
+                                   "words": ["strawberry"]
+                              }
+                         },
+                         "words": ["strawberry"]
+                    }
+               },
+               "words": ["strawberry"]
+          }
+     },
+     "words": ["apple", "apricot", "banana", "car", "cart", "pear", "guava", "cherry", "orange", "pineapple", "mango", "grapes", "blueberry", "raspberry", "melon", "blackberry", "plum", "kiwi", "peach", "strawberry", "avocado"]
+}
