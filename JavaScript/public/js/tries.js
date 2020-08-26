@@ -1,29 +1,37 @@
-function Node(c) {
-     this.c = c;
-     this.isTerminal = false;
-     this.map = {};
+// create note
+function Node(ch) {
+     this.ch = ch; // current string
+     this.terminal = false; // if terminal node then TRUE or FALSe
+     this.branch = {};
      this.words = [];
 }
 
-function add(str, i, root) {
-     if (i === str.length) {
-          root.isTerminal = true;
+// add new node upon check
+// recursive method to add node for each word.
+let addNode = (node, i, word) => {
+     if (i === word.length) {
+          node.terminal = true;
           return;
      }
 
-     if (!root.map[str[i]])
-          root.map[str[i]] = new Node(str[i]);
-
-     root.words.push(str);
-     add(str, i + 1, root.map[str[i]])
-}
-
-function search(str, i, root) {
-     if (i === str.length) {
-          return root.words;
+     let ch = word[i];
+     if (!node.branch[ch]) {
+          node.branch[ch] = new Node(ch);
      }
 
-     if (!root.map[str[i]])
+     node.words.push(word);
+     addNode(node.branch[ch], i + 1, word);
+};
+
+// search node by charater
+let search = (node, i, word) => {
+     if (i === word.length) {
+          return node.words;
+     }
+
+     let ch = word[i];
+     if (!node.branch[ch]) {
           return [];
-     return search(str, i + 1, root.map[str[i]]);
-}
+     }
+     return search(node.branch[ch], i + 1, word);
+};

@@ -1,4 +1,5 @@
 let items = [];
+let max_word = 10;
 
 function readTextFile(file) {
      var rawFile = new XMLHttpRequest();
@@ -16,30 +17,33 @@ function readTextFile(file) {
 
 readTextFile('./js/english.txt');
 
-
-const root = new Node('\0');
-let io_box = document.getElementById('strs');
-let lst = document.getElementById('word-list');
-
-for (let item in items) {
-     add(items[item], 0, root);
+// create parent root node
+let root = new Node("\0");
+// add all words to the tree
+for (let word of items) {
+     addNode(root, 0, word);
 }
 
-function updateSuggestion(e) {
-     let str = e.target.value;
-     let prediction = search(str, 0, root);
-     lst.innerHTML = "";
-     console.log('pred->', prediction.length);
-     let arr = prediction.length < 10 ? prediction : prediction.slice(0, 10);
-     for (let word of arr) {
-          console.log('arr->', arr.length);
-          lst.innerHTML += '<li onclick="handleClick(this)">' + word + '</li>';
+
+// Interface ---------------- 
+let tv = $("#text-box");
+let lst = $("#menu");
+
+tv.on("keyup", () => {
+     let prediction = search(root, 0, tv.val());
+     addSuggestions(prediction);
+});
+
+// populating suggestions to ul li list
+function addSuggestions(words) {
+     lst.empty();
+     for (let word of (words.length < max_word ? words : words.slice(0, max_word))) { // take top 10 words
+          lst.append('<li onclick="liSelector(event)" class="list-item" >' + word + '</li>');
      }
 }
 
-function handleClick(e) {
-     const text = e.innerHTML;
-     io_box.value = text;
-}
 
-io_box.addEventListener("keyup", updateSuggestion);
+function liSelector(e) {
+     let text = $(e.target).text();
+     tv.val(text);
+}
