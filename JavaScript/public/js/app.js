@@ -24,7 +24,6 @@ for (let word of items) {
      addNode(root, 0, word);
 }
 
-
 // Interface ---------------- 
 let tv = $("#text-box");
 let lst = $("#menu");
@@ -41,7 +40,6 @@ function addSuggestions(words) {
           lst.append('<li onclick="liSelector(event)" class="list-item" >' + word + '</li>');
      }
 }
-
 
 function liSelector(e) {
      let text = $(e.target).text();
