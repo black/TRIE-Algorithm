@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 suggTv.setText("");
                 suggestion = root.search(root,0,enterWord.getText().toString());
-                for(String word: suggestion){
+                for(String word: suggestion.size()>10?suggestion:suggestion){
                     suggTv.append(word+"\n");
                 }
             }
