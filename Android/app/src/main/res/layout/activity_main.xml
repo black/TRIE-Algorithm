@@ -7,7 +7,12 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
-
+    <ProgressBar
+        android:id="@+id/readProgress"
+        android:visibility="gone"
+        android:indeterminate="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/enter_word"
         android:layout_width="match_parent"
