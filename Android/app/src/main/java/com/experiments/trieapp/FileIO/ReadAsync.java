@@ -38,8 +38,7 @@ public class ReadAsync extends AsyncTask<String, Integer, String[]> {
             stream.read(buffer);
             stream.close();
             String str = new String(buffer);
-            String[] words = str.split("\n");
-            return words;
+            return str.split("\n");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -1,17 +1,18 @@
 package com.experiments.trieapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.experiments.trieapp.FileIO.ReadAsync;
 import com.experiments.trieapp.FileIO.Results;
+import com.experiments.trieapp.KeyBox.OnRVItemClickListener;
+import com.experiments.trieapp.KeyBox.RVAdapter;
 import com.experiments.trieapp.Trie.TriNode;
 
 import java.util.ArrayList;
@@ -19,46 +20,33 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ProgressBar readProgress;
-    private EditText enterWord;
-    private TextView suggTv;
+    private TextView enterWord;
     private TriNode root;
-//    private List<String> words = new ArrayList<>();
     private List<String> suggestion = new ArrayList<>();
+
+    // Keyboard Code
+    private List<String> keysList = new ArrayList<>();
+    private String[] keyVal = {
+            "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+            "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+            "a", "s", "d", "f", "g", "h", "j", "k", "l",
+            "z", ".", "x", "c", "v", "b", "n", "m", "del",
+            "tts", "space", "send", "done"
+    };
+
+    private RVAdapter rvAdapter;
+    private String msg = "";
+    private String curr = "";
+    private String selected = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         root = new TriNode();
-        addWords();
-//        for (String word: words) {
-//            root.addNode(root, 0, word);
-//        }
-
+        root = new TriNode();
         readProgress = findViewById(R.id.readProgress);
-        suggTv = findViewById(R.id.suggestions);
         enterWord = findViewById(R.id.enter_word);
-        enterWord.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                suggTv.setText("");
-                suggestion = root.search(root,0,enterWord.getText().toString());
-                if(suggestion.size()>0) {
-                    for (String word : suggestion.size() < 10 ? suggestion : suggestion.subList(0, 10)) {
-                        suggTv.append(word + "\n");
-                    }
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+        drawKeyboard();
     }
 
     @Override
@@ -67,30 +55,85 @@ public class MainActivity extends AppCompatActivity {
         ReadDictionary("english.txt");
     }
 
-    private void addWords(){
-       /* words.add("ace");
-        words.add("ape");
-        words.add("apple");
-        words.add("applet");
-        words.add("boy");
-        words.add("bond");
-        words.add("bold");
-        words.add("ban");
-        words.add("bread");
-        words.add("break");
-        words.add("cat");
-        words.add("cast");
-        words.add("come");*/
+    public void drawKeyboard() {
+        for (int i = 0; i < keyVal.length; i++) {
+            keysList.add(keyVal[i]);
+        }
+        RecyclerView recyclerView = findViewById(R.id.rv_view);
+        rvAdapter = new RVAdapter(keysList, this);
+        recyclerView.setAdapter(rvAdapter);
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 10);
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position == 30 ||position == 37 || position == 38 || position == 40 || position == 41) {
+                    return 2;
+                } else if (position == 39) {
+                    return 4;
+                } else {
+                    return 1;
+                }
+            }
+        });
+
+        rvAdapter.setOnRVItemClickListener(new OnRVItemClickListener() {
+            @Override
+            public void onClickListener(int pos) {
+               /* if (pos < 10) {
+                    msg += keysList.get(pos);
+                } else if (pos == 39 && msg.length() > 0) {
+                    curr = removeLastChar(curr);
+                } else if (pos == 34) {
+                    curr = curr + " ";
+                } else {
+                    curr += keysList.get(pos); // per letter
+                    msg += curr;
+                }*/
+                if (pos == 39 && msg.length() > 0) {
+                    msg = removeLastChar(msg);
+                }else {
+                    msg += keysList.get(pos);
+                    suggestion = root.search(root, 0, msg);
+                    if (suggestion.size() > 0) {
+                        int t = 0;
+                        for (String word : suggestion.size() < 10 ? suggestion : suggestion.subList(0, 10)) {
+                            keysList.set(1, "asd");
+                            Log.d("LastWord", t+"\t"+suggestion.size()+"\t"+word);
+                            t++;
+                        }
+                        rvAdapter.notifyDataSetChanged();
+                    }
+                }
+                keysList.set(0, "0");
+                keysList.set(1, "1");
+                keysList.set(2, "2");
+                keysList.set(3, "3");
+                keysList.set(4, "4");
+                keysList.set(5, "5");
+                keysList.set(6, "6");
+                keysList.set(7, "7");
+                keysList.set(8, "8");
+                keysList.set(9, "9");
+                rvAdapter.notifyDataSetChanged();
+                enterWord.setText(msg);
+            }
+        });
     }
 
-    public void ReadDictionary(String filename){
+    private static String removeLastChar(String str) {
+        return str.substring(0, str.length() - 1);
+    }
+
+    public void ReadDictionary(String filename) {
         ReadAsync task = new ReadAsync(this, new Results() {
             @Override
             public void processFinish(final String[] output) {
-               runOnUiThread(new Runnable() {
+                runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        for(String word:output) {
+                        for (String word : output) {
                             root.addNode(root, 0, word);
                         }
                     }
