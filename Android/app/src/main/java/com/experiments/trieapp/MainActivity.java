@@ -61,20 +61,21 @@ public class MainActivity extends AppCompatActivity {
         }
         RecyclerView recyclerView = findViewById(R.id.rv_view);
         rvAdapter = new RVAdapter(keysList, this);
-        recyclerView.setAdapter(rvAdapter);
+        recyclerView.setAdapter(rvAdapter); 
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, 10);
         recyclerView.setLayoutManager(mLayoutManager);
 
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (position == 30 ||position == 37 || position == 38 || position == 40 || position == 41) {
+                /*if (position == 30 ||position == 37 || position == 38 || position == 40 || position == 41) {
                     return 2;
                 } else if (position == 39) {
                     return 4;
                 } else {
                     return 1;
-                }
+                }*/
+                return 1;
             }
         });
 
@@ -91,31 +92,23 @@ public class MainActivity extends AppCompatActivity {
                     curr += keysList.get(pos); // per letter
                     msg += curr;
                 }*/
-                if (pos == 39 && msg.length() > 0) {
+                if (pos < 10) {
+                    msg += keysList.get(pos);
+                } else if (pos == 39 && msg.length() > 0) {
                     msg = removeLastChar(msg);
                 }else {
                     msg += keysList.get(pos);
-                    suggestion = root.search(root, 0, msg);
-                    if (suggestion.size() > 0) {
-                        int t = 0;
-                        for (String word : suggestion.size() < 10 ? suggestion : suggestion.subList(0, 10)) {
-                            keysList.set(1, "asd");
-                            Log.d("LastWord", t+"\t"+suggestion.size()+"\t"+word);
-                            t++;
-                        }
-                        rvAdapter.notifyDataSetChanged();
+                }
+
+                suggestion = root.search(root, 0, msg);
+                if (suggestion.size() > 0) {
+                    int t = 0;
+                    for (String word : suggestion.size() < 10 ? suggestion : suggestion.subList(0, 10)) {
+                        keysList.set(t,word);
+                        t++;
                     }
                 }
-                keysList.set(0, "0");
-                keysList.set(1, "1");
-                keysList.set(2, "2");
-                keysList.set(3, "3");
-                keysList.set(4, "4");
-                keysList.set(5, "5");
-                keysList.set(6, "6");
-                keysList.set(7, "7");
-                keysList.set(8, "8");
-                keysList.set(9, "9");
+
                 rvAdapter.notifyDataSetChanged();
                 enterWord.setText(msg);
             }

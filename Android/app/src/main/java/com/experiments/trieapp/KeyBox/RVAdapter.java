@@ -42,10 +42,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
             holder.imageView.setImageResource(context.getResources().getIdentifier("key_"+objectList.get(position),"drawable",context.getPackageName()));
         }else{
             holder.titleView.setText(title);
-            holder.titleView.setTextSize(position<10?14:32);
             holder.imageView.setVisibility(View.GONE);
         }
-        //holder.indexView.setText(String.valueOf(position));
+        holder.indexView.setText(String.valueOf(position));
+    }
+
+    public void setData(List<String> objectList){
+        this.objectList = objectList;
     }
 
     @Override
