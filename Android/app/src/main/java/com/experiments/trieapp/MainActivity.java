@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     // Keyboard Code
     private List<String> keysList = new ArrayList<>();
     private String[] keyVal = {
-            "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+            "", "", "", "", "", "", "", "", "", "",
             "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
-            "a", "s", "d", "f", "g", "h", "j", "k", "l",
-            "z", ".", "x", "c", "v", "b", "n", "m", "del",
-            "tts", "space", "send", "done"
+            "a", "s", "d", "f", "g", "h", "j", "k", "l", "z",
+            ".", "x", "c", "v", "b", "n", "m", "del","tts","space",
+            "send", "done"
     };
 
     private RVAdapter rvAdapter;
@@ -60,56 +60,47 @@ public class MainActivity extends AppCompatActivity {
             keysList.add(keyVal[i]);
         }
         RecyclerView recyclerView = findViewById(R.id.rv_view);
-        rvAdapter = new RVAdapter(keysList, this);
-        recyclerView.setAdapter(rvAdapter); 
+        rvAdapter = new RVAdapter(this);
+        recyclerView.setAdapter(rvAdapter);
+        rvAdapter.setData(keyVal);
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, 10);
         recyclerView.setLayoutManager(mLayoutManager);
 
         mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                /*if (position == 30 ||position == 37 || position == 38 || position == 40 || position == 41) {
+                if (position == 30 ||position == 37 || position == 38 || position == 40 || position == 41) {
                     return 2;
                 } else if (position == 39) {
                     return 4;
                 } else {
                     return 1;
-                }*/
-                return 1;
+                }
             }
         });
 
         rvAdapter.setOnRVItemClickListener(new OnRVItemClickListener() {
             @Override
             public void onClickListener(int pos) {
-               /* if (pos < 10) {
-                    msg += keysList.get(pos);
-                } else if (pos == 39 && msg.length() > 0) {
-                    curr = removeLastChar(curr);
-                } else if (pos == 34) {
-                    curr = curr + " ";
-                } else {
-                    curr += keysList.get(pos); // per letter
-                    msg += curr;
-                }*/
                 if (pos < 10) {
-                    msg += keysList.get(pos);
-                } else if (pos == 39 && msg.length() > 0) {
+                    msg += keyVal[pos];
+                } else if (pos == 37 && msg.length() > 0) {
                     msg = removeLastChar(msg);
-                }else {
-                    msg += keysList.get(pos);
+                } else if (pos == 39) {
+                    msg = msg + " ";
+                } else {
+                    msg += keyVal[pos];
                 }
 
                 suggestion = root.search(root, 0, msg);
-                if (suggestion.size() > 0) {
+                if (suggestion!=null && suggestion.size() > 0) {
                     int t = 0;
                     for (String word : suggestion.size() < 10 ? suggestion : suggestion.subList(0, 10)) {
-                        keysList.set(t,word);
+                        keyVal[t] = word;
                         t++;
                     }
                 }
-
-                rvAdapter.notifyDataSetChanged();
+                rvAdapter.setData(keyVal);
                 enterWord.setText(msg);
             }
         });

@@ -17,10 +17,9 @@ import java.util.List;
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder> {
 
     private OnRVItemClickListener onRVItemClickListener;
-    private List<String> objectList;
+    private String[] keyVal;
     private Context context;
-    public RVAdapter(List<String> objectList, Context context) {
-        this.objectList = objectList;
+    public RVAdapter(Context context) {
         this.context = context;
     }
 
@@ -36,24 +35,29 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ContentViewHolder holder, int position) {
-        String title = objectList.get(position);
-        if(objectList.get(position).equals("del") || objectList.get(position).equals("tts") || objectList.get(position).equals("space") || objectList.get(position).equals("done")){
+        String title = keyVal[position];
+        if(title.equals("del") || title.equals("tts") || title.equals("space") || title.equals("done")){
             holder.titleView.setVisibility(View.GONE);
-            holder.imageView.setImageResource(context.getResources().getIdentifier("key_"+objectList.get(position),"drawable",context.getPackageName()));
+            holder.imageView.setVisibility(View.VISIBLE);
+            holder.imageView.setImageResource(context.getResources().getIdentifier("key_"+title,"drawable",context.getPackageName()));
         }else{
             holder.titleView.setText(title);
+            holder.titleView.setTextSize(position<10?18:32);
+            holder.titleView.setAllCaps(position>9?true:false);
             holder.imageView.setVisibility(View.GONE);
+            holder.titleView.setVisibility(View.VISIBLE);
         }
         holder.indexView.setText(String.valueOf(position));
     }
 
-    public void setData(List<String> objectList){
-        this.objectList = objectList;
+    public void setData(String[] keyVal){
+        this.keyVal = keyVal;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return objectList.size();
+        return keyVal.length;
     }
 
     public static class ContentViewHolder extends RecyclerView.ViewHolder{
