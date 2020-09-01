@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClickListener(int pos) {
                 if (pos < 10) {
-                    msg += keyVal[pos];
+                    msg = msg.substring(0,msg.lastIndexOf(" ")+1)+keyVal[pos]+" ";
                 } else if (pos == 37 && msg.length() > 0) {
                     msg = removeLastChar(msg);
                 } else if (pos == 39) {
@@ -92,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
                     msg += keyVal[pos];
                 }
 
-                suggestion = root.search(root, 0, msg);
+                String curr = msg.substring(msg.lastIndexOf(" ")+1);
+
+                // pass last word for suggestion
+                suggestion = root.search(root, 0,curr);
                 if (suggestion!=null && suggestion.size() > 0) {
                     int t = 0;
                     for (String word : suggestion.size() < 10 ? suggestion : suggestion.subList(0, 10)) {
