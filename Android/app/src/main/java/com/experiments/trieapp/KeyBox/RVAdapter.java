@@ -1,5 +1,6 @@
 package com.experiments.trieapp.KeyBox;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.experiments.trieapp.R;
-
-import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder> {
 
@@ -33,10 +32,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
         return new RVAdapter.ContentViewHolder(view, onRVItemClickListener);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(@NonNull ContentViewHolder holder, int position) {
         String title = keyVal[position];
-        if(title.equals("del") || title.equals("tts") || title.equals("space") || title.equals("done")){
+        if(title.equals("del") || title.equals("tts") || title.equals("space") || title.equals("done") || title.equals("send")){
+            holder.view.setBackground(context.getResources().getDrawable(R.drawable.roundcorner_img));
             holder.titleView.setVisibility(View.GONE);
             holder.imageView.setVisibility(View.VISIBLE);
             holder.imageView.setImageResource(context.getResources().getIdentifier("key_"+title,"drawable",context.getPackageName()));
@@ -46,6 +47,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ContentViewHolder>
             holder.titleView.setAllCaps(position>9?true:false);
             holder.imageView.setVisibility(View.GONE);
             holder.titleView.setVisibility(View.VISIBLE);
+            holder.view.setBackground(position<10?context.getResources().getDrawable(R.drawable.roundcorner_sgs):context.getResources().getDrawable(R.drawable.roundcorner_btn));
         }
         holder.indexView.setText(String.valueOf(position));
     }
