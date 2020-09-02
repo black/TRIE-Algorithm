@@ -34,7 +34,7 @@ public class TriNode {
 
     public List<String> search(TriNode triNode, int i, String word){
         if (i == word.length()) {
-            return triNode.words;
+            return triNode.words.size() < 10 ? triNode.words : triNode.words.subList(0, 10);
         }
 
         char ch = word.charAt(i);

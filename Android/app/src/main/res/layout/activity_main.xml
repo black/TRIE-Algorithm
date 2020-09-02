@@ -10,7 +10,7 @@
         android:id="@+id/enter_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="100sp"/>
+        android:textSize="21sp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_view"
         android:layout_width="match_parent"

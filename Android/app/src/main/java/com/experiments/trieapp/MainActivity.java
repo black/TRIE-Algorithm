@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 suggestion = root.search(root, 0,curr);
                 if (suggestion!=null && suggestion.size() > 0) {
                     int t = 0;
-                    for (String word : suggestion.size() < 10 ? suggestion : suggestion.subList(0, 10)) {
+                    for (String word :suggestion) {
                         keyVal[t] = word;
                         t++;
                     }

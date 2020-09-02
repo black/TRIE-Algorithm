@@ -29,14 +29,14 @@ let tv = $("#text-box");
 let lst = $("#menu");
 
 tv.on("keyup", () => {
-     let prediction = search(root, 0, tv.val());
+     let prediction = search(root, 0, tv.val(), 10);
      addSuggestions(prediction);
 });
 
 // populating suggestions to ul li list
 function addSuggestions(words) {
      lst.empty();
-     for (let word of (words.length < max_word ? words : words.slice(0, max_word))) { // take top 10 words
+     for (let word of words) { // take top 10 words
           lst.append('<li onclick="liSelector(event)" class="list-item" >' + word + '</li>');
      }
 }
