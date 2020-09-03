@@ -13,7 +13,9 @@ import com.experiments.trieapp.FileIO.ReadAsync;
 import com.experiments.trieapp.FileIO.Results;
 import com.experiments.trieapp.KeyBox.OnRVItemClickListener;
 import com.experiments.trieapp.KeyBox.RVAdapter;
+import com.experiments.trieapp.Trie.Suggestion;
 import com.experiments.trieapp.Trie.TriNode;
+import com.experiments.trieapp.Trie.WordsAsync;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         rvAdapter.setOnRVItemClickListener(new OnRVItemClickListener() {
             @Override
             public void onClickListener(int pos) {
-                if (pos < 10) {
+                if (pos < 10 && msg.length()>0) {
                     msg = msg.substring(0,msg.lastIndexOf(" ")+1)+keyVal[pos]+" ";
                 } else if (pos == 37 && msg.length() > 0) {
                     msg = removeLastChar(msg);
@@ -91,22 +93,31 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     msg += keyVal[pos];
                 }
+                updateSuggestions();
+                enterWord.setText(msg);
+            }
+        });
+    }
 
-                String curr = msg.substring(msg.lastIndexOf(" ")+1);
-
-                // pass last word for suggestion
-                suggestion = root.search(root, 0,curr);
-                if (suggestion!=null && suggestion.size() > 0) {
+    private void updateSuggestions(){
+        String curr = msg.substring(msg.lastIndexOf(" ")+1);
+        WordsAsync wordsAsync = new WordsAsync(this, new Suggestion() {
+            @Override
+            public void processFinish(List<String> output) {
+                if (output!=null && output.size() > 0) {
                     int t = 0;
-                    for (String word :suggestion) {
+                    for (String word :output) {
                         keyVal[t] = word;
                         t++;
                     }
                 }
                 rvAdapter.setData(keyVal);
-                enterWord.setText(msg);
             }
-        });
+        },root);
+        wordsAsync.searchWords(curr);
+        wordsAsync.setProgressBar(readProgress);
+        wordsAsync.execute();
+
     }
 
     private static String removeLastChar(String str) {
