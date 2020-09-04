@@ -15,6 +15,7 @@ Trie implemented in various language with their performance test
 ](https://stackoverflow.com/questions/29880237/questions-about-using-a-radix-tree-in-android-for-english-dictionary-word-lookup)
 7. [Saving and restoring RadixTree object](https://codereview.stackexchange.com/questions/88143/saving-and-restoring-radixtree-object)
 8. [DAWG](https://www.strchr.com/dawg_predictive)
+9. [LeetCode – Implement Trie (Prefix Tree) (Java)](https://www.programcreek.com/2014/05/leetcode-implement-trie-prefix-tree-java/)
 
 ### Libraries 
 
