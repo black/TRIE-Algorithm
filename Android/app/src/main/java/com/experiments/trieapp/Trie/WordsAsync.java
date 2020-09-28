@@ -6,8 +6,6 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.experiments.trieapp.FileIO.Results;
-
 import java.util.List;
 
 public class WordsAsync extends AsyncTask<String,Integer,List<String> > {
@@ -17,8 +15,7 @@ public class WordsAsync extends AsyncTask<String,Integer,List<String> > {
     private String word;
     private Suggestion results;
 
-    public WordsAsync(Context context, Suggestion results, TriNode root) {
-       this.context = context;
+    public WordsAsync(Suggestion results, TriNode root) {
        this.root = root;
        this.results = results;
     }
@@ -45,7 +42,7 @@ public class WordsAsync extends AsyncTask<String,Integer,List<String> > {
     @Override
     protected void onPostExecute(List<String> s) {
         super.onPostExecute(s);
-        bar.setVisibility(View.GONE);
+        bar.setVisibility(View.INVISIBLE);
         results.processFinish(s);
     }
 }

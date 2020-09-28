@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        ReadDictionary("english.txt");
+        ReadDictionary("new.txt");
     }
 
     public void drawKeyboard() {
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateSuggestions(){
         String curr = msg.substring(msg.lastIndexOf(" ")+1);
-        WordsAsync wordsAsync = new WordsAsync(this, new Suggestion() {
+        WordsAsync wordsAsync = new WordsAsync(new Suggestion() {
             @Override
             public void processFinish(List<String> output) {
                 if (output!=null && output.size() > 0) {

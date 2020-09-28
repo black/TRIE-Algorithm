@@ -15,7 +15,7 @@ function readTextFile(file) {
      rawFile.send(null);
 }
 
-readTextFile('./js/english.txt');
+readTextFile('./js/new.txt');
 
 // create parent root node
 let root = new Node("\0");
@@ -27,6 +27,8 @@ for (let word of items) {
 // Interface ---------------- 
 let tv = $("#text-box");
 let lst = $("#menu");
+let msgbox = $('#finalMsg');
+let msg = "";
 
 tv.on("keyup", () => {
      let prediction = search(root, 0, tv.val(), 10);
@@ -43,5 +45,9 @@ function addSuggestions(words) {
 
 function liSelector(e) {
      let text = $(e.target).text();
-     tv.val(text);
+     tv.val('');
+     lst.empty();
+     tv.focus();
+     msg += (" " + text);
+     msgbox.text(msg);
 }
